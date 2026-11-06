@@ -1,399 +1,905 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brightdesk Web Studio – Affordable websites, hosting and care</title>
-<meta name="description" content="We design, host and maintain websites for small and large businesses at fair, fixed prices.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#F4F6FA; --white:#fff; --ink:#10223A; --muted:#51627A;
-  --blue:#1F4FD8; --blue-d:#173DAA; --sun:#FFB627; --line:#D9E0EC;
-  --head:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
-  --body:'Figtree','Segoe UI',system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
-img,svg{max-width:100%}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
-.wrap{width:min(1120px,92%);margin-inline:auto}
-h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.02em}
-h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800}
-h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:.6rem}
-h3{font-size:1.25rem;font-weight:700;margin-bottom:.4rem}
-p.lead{font-size:1.15rem;color:var(--muted);max-width:56ch}
-section{padding:90px 0}
-.sec-head{margin-bottom:44px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brightbinaries Web Studio – Handcrafted Websites, High-Speed Hosting & Ongoing Care</title>
+  <meta name="description" content="Brightbinaries designs, hosts, and maintains fast, beautiful websites for small businesses and enterprises at honest, fixed prices with 7-day turnaround.">
+  
+  <!-- Open Graph / Social Metadata -->
+  <meta property="og:title" content="Brightbinaries Web Studio – Websites, Hosting & Care">
+  <meta property="og:description" content="Fixed-price websites built in 7 days with fast cloud hosting, daily backups, and unlimited support.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="favicon.svg">
+  <meta name="theme-color" content="#1D4ED8">
 
-/* buttons */
-.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:600;transition:background .2s,transform .2s}
-.btn-primary{background:var(--blue);color:#fff}
-.btn-primary:hover{background:var(--blue-d);transform:translateY(-2px)}
-.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
-.btn-ghost:hover{background:var(--ink);color:#fff}
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-/* header */
-header{position:sticky;top:0;z-index:20;background:rgba(244,246,250,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{font-family:var(--head);font-weight:800;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:8px}
-.logo i{width:22px;height:22px;background:var(--sun);border-radius:6px 6px 6px 0;display:block}
-nav ul{display:flex;gap:28px;list-style:none;align-items:center}
-nav a{text-decoration:none;font-weight:500}
-nav a:hover{color:var(--blue)}
-.menu-btn{display:none;background:none;border:2px solid var(--ink);border-radius:8px;padding:6px 12px;font:inherit;font-weight:600;cursor:pointer}
+  <!-- Typography: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-/* hero */
-.hero{padding:70px 0 90px}
-.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
-.hero h1 span{display:block;color:var(--blue)}
-.hero .lead{margin:22px 0 32px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-.trust{margin-top:34px;display:flex;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
-.trust b{color:var(--ink)}
-
-/* browser mockup */
-.browser{background:var(--white);border:2px solid var(--ink);border-radius:16px;box-shadow:10px 10px 0 var(--ink);overflow:hidden}
-.bar{display:flex;align-items:center;gap:7px;padding:12px 14px;border-bottom:2px solid var(--ink);background:var(--paper)}
-.bar i{width:11px;height:11px;border-radius:50%;background:var(--ink);opacity:.25}
-.bar span{margin-left:10px;flex:1;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:3px 14px;font-size:.8rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.screen{padding:26px;min-height:300px;transition:background .4s,color .4s}
-.screen .tag{display:inline-block;font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.7);margin-bottom:14px}
-.screen h4{font-family:var(--head);font-size:1.9rem;line-height:1.1;margin-bottom:10px}
-.screen p{font-size:.95rem;max-width:34ch;margin-bottom:18px}
-.screen .fake-btn{display:inline-block;padding:9px 18px;border-radius:8px;font-weight:600;font-size:.9rem;color:#fff}
-.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
-.blocks div{height:54px;border-radius:8px;background:rgba(0,0,0,.08)}
-.switcher{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap}
-.switcher button{font:inherit;font-size:.9rem;font-weight:600;padding:8px 16px;border-radius:999px;border:2px solid var(--ink);background:transparent;cursor:pointer;color:var(--ink)}
-.switcher button[aria-pressed="true"]{background:var(--ink);color:#fff}
-
-/* features */
-.features{background:var(--white);border-block:1px solid var(--line)}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.feat{padding:28px;border-radius:14px;background:var(--paper);border:1px solid var(--line)}
-.feat svg{width:34px;height:34px;margin-bottom:16px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.feat p{color:var(--muted)}
-
-/* pricing */
-.toggle{display:inline-flex;background:var(--white);border:2px solid var(--ink);border-radius:999px;padding:4px;margin-bottom:36px}
-.toggle button{font:inherit;font-weight:600;border:0;background:none;padding:8px 20px;border-radius:999px;cursor:pointer;color:var(--ink)}
-.toggle button[aria-pressed="true"]{background:var(--ink);color:#fff}
-.plan{background:var(--white);border:2px solid var(--line);border-radius:18px;padding:32px;display:flex;flex-direction:column}
-.plan.pop{border-color:var(--ink);box-shadow:8px 8px 0 var(--sun)}
-.plan .badge{align-self:flex-start;background:var(--sun);font-size:.8rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:10px}
-.plan .for{color:var(--muted);font-size:.95rem;margin-bottom:18px;min-height:3em}
-.price{font-family:var(--head);font-size:3rem;font-weight:800;line-height:1}
-.price small{font-family:var(--body);font-size:1rem;font-weight:500;color:var(--muted)}
-.once{font-size:.9rem;color:var(--muted);margin:6px 0 22px}
-.plan ul{list-style:none;margin-bottom:28px;flex:1}
-.plan li{padding:7px 0 7px 28px;position:relative;border-top:1px solid var(--line);font-size:.97rem}
-.plan li::before{content:"";position:absolute;left:4px;top:15px;width:12px;height:7px;border-left:2.5px solid var(--blue);border-bottom:2.5px solid var(--blue);transform:rotate(-45deg)}
-.plan .btn{text-align:center}
-.note{margin-top:26px;color:var(--muted);font-size:.95rem}
-
-/* process */
-.process{background:var(--ink);color:#fff}
-.process .lead{color:#B8C4D8}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s;list-style:none}
-.steps li{counter-increment:s;border-top:3px solid var(--sun);padding-top:18px}
-.steps li::before{content:"Step " counter(s);display:block;font-size:.85rem;color:var(--sun);font-weight:600;margin-bottom:6px}
-.steps p{color:#B8C4D8;font-size:.97rem}
-
-/* faq */
-.faq{max-width:760px}
-details{border-bottom:1px solid var(--line);padding:18px 0}
-summary{font-family:var(--head);font-weight:700;font-size:1.15rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:1.5rem;line-height:1;transition:transform .2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{margin-top:10px;color:var(--muted)}
-
-/* contact */
-.contact{background:var(--blue);color:#fff}
-.contact .lead{color:#DCE5FF}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-form{background:var(--white);color:var(--ink);border-radius:18px;padding:30px;display:grid;gap:16px}
-label{font-weight:600;font-size:.95rem;display:grid;gap:6px}
-input,select,textarea{font:inherit;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);width:100%}
-input:focus,select:focus,textarea:focus{border-color:var(--blue);outline:none}
-.err{color:#B42318;font-size:.85rem;font-weight:500;min-height:1.1em}
-.ok{display:none;background:#E6F6EC;color:#14532D;padding:14px;border-radius:10px;font-weight:600}
-.ok.show{display:block}
-
-footer{padding:34px 0;font-size:.92rem;color:var(--muted)}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-
-/* hero entrance (the one page-load moment) */
-@media (prefers-reduced-motion:no-preference){
-  .browser{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
-  @keyframes rise{from{opacity:0;transform:translateY(30px) rotate(1.5deg)}to{opacity:1;transform:none}}
-}
-
-@media (max-width:900px){
-  section{padding:64px 0}
-  .hero-grid,.contact-grid{grid-template-columns:1fr}
-  .grid3{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr 1fr}
-  .menu-btn{display:block}
-  nav ul{display:none;position:absolute;top:68px;left:0;right:0;background:var(--paper);flex-direction:column;padding:20px 4%;border-bottom:1px solid var(--line);gap:16px;align-items:flex-start}
-  nav ul.open{display:flex}
-}
-@media (max-width:520px){.steps{grid-template-columns:1fr}}
-</style>
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
->Pricing</a></li>
-        <li><a href="#process">How it works</a></li>
-        <li><a href="#faq">Questions</a></li>
-        <li><a class="btn btn-primary" href="#contact">Get a quote</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
 
-<main id="top">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#top"><i></i>Brightdesk</a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
-    <nav aria-label="Main">
-      <ul id="menu">
-        <li><a href="#services">What you get</a></li>
-        <li><a href="#pricing"
-      <h1>A real website for your business, <span>at a price that makes sense.</span></h1>
-      <p class="lead">We design, host and look after websites for small shops and large companies. One fixed price, no surprise bills, and a person who answers when you write.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Get a free quote</a>
-        <a class="btn btn-ghost" href="#pricing">See pricing</a>
-      </div>
-      <div class="trust">
-        <span><b>7 days</b> to launch</span>
-        <span><b>Hosting</b> included</span>
-        <span><b>Free</b> fixes for 30 days</span>
-      </div>
+  <!-- Site Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a class="site-logo" href="#top" aria-label="Brightbinaries Web Studio Home">
+        <svg class="site-logo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="64" height="64" rx="16" fill="#F4F6FA"/>
+          <rect x="8" y="8" width="48" height="48" rx="12" fill="#1D4ED8"/>
+          <path d="M20 17h16.5c7 0 12.5 4.3 12.5 10.4 0 4.8-3.1 8.2-7.5 9.4 5 .9 9.2 4.9 9.2 10.7C50.7 46.4 45 52 35.8 52H20V17Zm10 11.2h4.5c4 0 6.2-1.9 6.2-4.9 0-3.1-2.2-4.8-6.2-4.8H30v9.7Zm0 13.6h5.3c4.9 0 7.6-2.1 7.6-5.7 0-3.5-2.7-5.6-7.6-5.6H30v11.3Z" fill="#F8FAFC"/>
+          <circle cx="47" cy="18" r="7" fill="#F59E0B"/>
+        </svg>
+        Brightbinaries
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a class="nav-link" href="#services">Services</a></li>
+          <!-- <li><a class="nav-link" href="#showcase">Live Preview</a></li> -->
+          <li><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li><a class="nav-link" href="#process">How it Works</a></li>
+          <li><a class="nav-link" href="#reviews">Reviews</a></li>
+          <li><a class="nav-link" href="#faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn-primary btn-sm" href="#contact">Get a Quote</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle navigation menu">
+        Menu
+      </button>
     </div>
 
-    <div>
-      <div class="browser" aria-live="polite">
-        <div class="bar"><i></i><i></i><i></i><span id="url">www.sunrisebakery.com</span></div>
-        <div class="screen" id="screen">
-          <span class="tag" id="tag">Bakery</span>
-          <h4 id="sTitle">Fresh bread, baked every morning.</h4>
-          <p id="sText">Order online and pick up warm loaves on your way to work.</p>
-          <span class="fake-btn" id="sBtn">Order now</span>
-          <div class="blocks"><div></div><div></div><div></div></div>
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav-panel" id="mobileNav" aria-label="Mobile Navigation">
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#showcase">Live Preview</a>
+      <a class="nav-link" href="#pricing">Pricing</a>
+      <a class="nav-link" href="#process">How it Works</a>
+      <a class="nav-link" href="#reviews">Reviews</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#contact" style="margin-top: 8px;">Get a Free Quote</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="section hero-section" id="showcase">
+      <div class="container hero-grid">
+        <!-- Hero Text & Value Prop -->
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="badge badge-sun">
+              <span class="pulse-dot"></span>
+              Accepting 3 New Clients This Month
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            A real website for your business,
+            <span class="gradient-text">at a price that makes sense.</span>
+          </h1>
+
+          <p class="lead hero-lead">
+            We design, host, and look after websites for ambitious local shops and growing companies. One fixed price, zero surprise invoices, and a dedicated team that replies in hours.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#contact">
+              Get Your Free Quote
+              <svg class="btn-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#pricing">See Pricing & Plans</a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="hero-trust-bar">
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>7 days</strong> to launch</span>
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Cloud hosting</strong> included</span>
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Free fixes</strong> for 30 days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Browser Mockup Window -->
+        <div class="browser-wrapper">
+          <div class="browser" aria-live="polite">
+            <div class="browser-bar">
+              <div class="browser-dots" aria-hidden="true">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-amber"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="browser-url">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0110 0v4"></path>
+                </svg>
+                <span class="browser-url-text" id="mockupUrl">www.sunrisebakery.com</span>
+              </div>
+            </div>
+
+            <!-- Dynamic Mockup Screen Content -->
+            <div class="browser-screen" id="screen">
+              <div class="screen-mini-nav">
+                <div class="screen-brand">
+                  <span class="screen-brand-icon" style="background: currentColor; opacity: 0.25;"></span>
+                  <span id="mockupBrand">Sunrise Bakery</span>
+                </div>
+                <span>Menu • About • Order</span>
+              </div>
+
+              <div>
+                <span class="screen-badge" id="mockupTag">Fresh Daily Batch 🥐</span>
+                <h2 class="screen-title" id="mockupTitle">Warm sourdough, baked fresh every dawn.</h2>
+                <p class="screen-text" id="mockupText">Order our signature loaves and morning pastries online for contactless curbside pickup.</p>
+                <div class="screen-cta-row">
+                  <a class="screen-btn" id="mockupBtn" href="#contact">Order for Pickup</a>
+                </div>
+              </div>
+
+              <!-- Mini Feature Cards inside preview -->
+              <div class="screen-cards" id="mockupCards">
+                <div class="screen-card-item">
+                  <div class="item-title">Sourdough Loaves</div>
+                  <div class="item-desc">Fermented 36 hrs with stoneground flour</div>
+                </div>
+                <div class="screen-card-item">
+                  <div class="item-title">Morning Pastries</div>
+                  <div class="item-desc">Butter croissants, pain au chocolat & buns</div>
+                </div>
+                <div class="screen-card-item">
+                  <div class="item-title">Local Delivery</div>
+                  <div class="item-desc">Delivered warm across downtown by 8 AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Industry Preview Switcher Buttons -->
+          <div class="preview-switcher" role="group" aria-label="Preview website templates for different industries">
+            <button class="switcher-btn" aria-pressed="true" data-index="0">
+              🥐 Bakery
+            </button>
+            <button class="switcher-btn" aria-pressed="false" data-index="1">
+              🩺 Clinic
+            </button>
+            <button class="switcher-btn" aria-pressed="false" data-index="2">
+              🏗️ Builder
+            </button>
+            <button class="switcher-btn" aria-pressed="false" data-index="3">
+              ⚡ Enterprise
+            </button>
+          </div>
         </div>
       </div>
-      <div class="switcher" role="group" aria-label="Preview a site for">
-        <button aria-pressed="true" data-i="0">Bakery</button>
-        <button aria-pressed="false" data-i="1">Clinic</button>
-        <button aria-pressed="false" data-i="2">Builder</button>
-        <button aria-pressed="false" data-i="3">Enterprise</button>
+    </section>
+
+    <!-- Social Proof & Stats Bar -->
+    <section class="social-proof-bar" aria-label="Key Performance Metrics">
+      <div class="container">
+        <div class="metrics-row">
+          <div class="metric-item">
+            <div class="metric-val">80+</div>
+            <div class="metric-label">Websites Launched<br>& Maintained</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">7 Days</div>
+            <div class="metric-label">Average Delivery<br>from Kickoff</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">99.9%</div>
+            <div class="metric-label">Managed Cloud<br>Uptime SLA</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">4.9 / 5</div>
+            <div class="metric-label">Client Satisfaction<br>Rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services / Feature Grid -->
+    <section class="section section-alt" id="services">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Everything Under One Roof</span>
+          <h2>Everything your website needs to succeed</h2>
+          <p class="lead">
+            No more juggling separate design agencies, domain registrars, hosting bills, and flaky freelancers. We handle the entire lifecycle.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <article class="service-card">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Custom Bespoke Design</h3>
+            <p>Clean, modern layouts crafted around your specific brand personality and goals—never generic templates or bloated page-builders.</p>
+            <ul class="service-perks">
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Mobile-first responsive layouts</li>
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Typography & color harmony</li>
+            </ul>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            </div>
+            <h3>Fast, Managed Cloud Hosting</h3>
+            <p>Your site lives on enterprise-grade cloud networks with automated SSL certificates, global CDN edge distribution, and daily backups.</p>
+            <ul class="service-perks">
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Free SSL security certificate</li>
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> 24/7 automated uptime monitoring</li>
+            </ul>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>
+            </div>
+            <h3>Concierge Ongoing Care</h3>
+            <p>Need to swap team photos, update pricing, or add seasonal promotions? Send us a quick note and our engineers take care of it within 24 hours.</p>
+            <ul class="service-perks">
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Fast turnaround on text & image edits</li>
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Routine security and plugin patches</li>
+            </ul>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="service-card">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Core Web Vitals & Speed</h3>
+            <p>Sub-second load times engineered with semantic HTML, lean CSS, and optimized image compression for top Google PageSpeed rankings.</p>
+            <ul class="service-perks">
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> 95+ score on Google Lighthouse</li>
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Zero third-party script bloat</li>
+            </ul>
+          </article>
+
+          <!-- Service 5 -->
+          <article class="service-card">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <h3>Booking, Forms & E-Commerce</h3>
+            <p>Seamlessly integrate Stripe payments, booking calendars (Calendly, Acuity), lead forms, and customer notification workflows.</p>
+            <ul class="service-perks">
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Frictionless checkout & appointments</li>
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Spam-protected contact forms</li>
+            </ul>
+          </article>
+
+          <!-- Service 6 -->
+          <article class="service-card">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3>Domains & Professional Email</h3>
+            <p>We configure custom domain DNS, connect Google Workspace or iCloud custom email, and set up DKIM/SPF security records so your emails reach inboxes.</p>
+            <ul class="service-perks">
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Free DNS migration & verification</li>
+              <li class="service-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Branded inbox setup support</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="pricing-header-wrap">
+          <span class="section-eyebrow">Clear & Predictable</span>
+          <h2>Simple, honest pricing</h2>
+          <p class="lead">
+            Pay a modest one-time build fee to launch your custom site, followed by a flat monthly subscription covering lightning hosting and hands-on maintenance.
+          </p>
+
+          <!-- Billing Period Switcher -->
+          <div class="billing-toggle-container" role="group" aria-label="Billing frequency selection">
+            <button class="billing-btn" id="billingMonthly" aria-pressed="true">
+              Monthly Billing
+            </button>
+            <button class="billing-btn" id="billingYearly" aria-pressed="false">
+              Annual Billing
+              <span class="save-badge">Save 20%</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Starter Plan -->
+          <article class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="plan-title">Starter</h3>
+              <p class="plan-for">Ideal for freelance consultants, local shops, and emerging services seeking a strong digital presence.</p>
+              <div class="price-lockup">
+                <span class="price-amount" data-monthly="9" data-yearly="90">$9</span>
+                <span class="price-period">/month</span>
+              </div>
+              <span class="build-fee-note">+ $199 one-time build</span>
+            </div>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Up to 5 bespoke pages</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Mobile & tablet optimized</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>High-speed hosting & SSL included</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Lead capture contact form</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>1 free content update per month</span>
+              </li>
+            </ul>
+
+            <a class="btn btn-ghost" href="#contact" data-plan="Starter">Choose Starter</a>
+          </article>
+
+          <!-- Business Plan (Featured) -->
+          <article class="pricing-card featured">
+            <div class="pricing-featured-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Most Popular
+            </div>
+
+            <div class="pricing-header">
+              <h3 class="plan-title">Business</h3>
+              <p class="plan-for">Designed for established businesses ready to generate bookings, process payments, or showcase client portfolios.</p>
+              <div class="price-lockup">
+                <span class="price-amount" data-monthly="29" data-yearly="290">$29</span>
+                <span class="price-period">/month</span>
+              </div>
+              <span class="build-fee-note">+ $499 one-time build</span>
+            </div>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Up to 15 custom pages</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Online booking or store integration</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Automated daily cloud backups</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Foundational SEO & Google Indexing</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>5 free content updates per month</span>
+              </li>
+            </ul>
+
+            <a class="btn btn-primary" href="#contact" data-plan="Business">Choose Business</a>
+          </article>
+
+          <!-- Enterprise Plan -->
+          <article class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="plan-title">Enterprise</h3>
+              <p class="plan-for">For larger organizations needing multi-region scaling, CRM integrations, and dedicated SLA support.</p>
+              <div class="price-lockup">
+                <span class="price-amount" data-monthly="99" data-yearly="990">$99</span>
+                <span class="price-period">/month</span>
+              </div>
+              <span class="build-fee-note">+ tailored build quote</span>
+            </div>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Unlimited pages & complex architectures</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Custom API & CRM integrations</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Dedicated account manager & 4h SLA</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Quarterly performance audits</span>
+              </li>
+              <li class="pricing-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Unlimited priority content edits</span>
+              </li>
+            </ul>
+
+            <a class="btn btn-ghost" href="#contact" data-plan="Enterprise">Talk to Us</a>
+          </article>
+        </div>
+
+        <!-- The Brightbinaries Difference Comparison Matrix -->
+        <div class="comparison-banner">
+          <div class="section-header text-center" style="margin-bottom: 28px;">
+            <h3>Why choose Brightbinaries?</h3>
+            <p class="lead" style="font-size: 1rem;">Compare our managed studio model to traditional agency and DIY alternatives.</p>
+          </div>
+          <div class="comparison-grid">
+            <div class="comparison-col highlight">
+              <h4>✨ Brightbinaries Studio</h4>
+              <ul>
+                <li>✓ Fixed, transparent pricing</li>
+                <li>✓ 7-day average turnaround</li>
+                <li>✓ Hosting, SSL & backups included</li>
+                <li>✓ We do all updates for you</li>
+                <li>✓ Direct line to your engineer</li>
+              </ul>
+            </div>
+            <div class="comparison-col">
+              <h4>🏢 Traditional Agencies</h4>
+              <ul>
+                <li>✗ $5,000–$15,000 upfront fees</li>
+                <li>✗ 8–16 week timelines</li>
+                <li>✗ Separate hosting contracts</li>
+                <li>✗ $150/hr for simple text changes</li>
+                <li>✗ Account managers & delays</li>
+              </ul>
+            </div>
+            <div class="comparison-col">
+              <h4>🛠️ DIY Builders (Wix/Squarespace)</h4>
+              <ul>
+                <li>✗ You do all the design work</li>
+                <li>✗ Frustrating technical troubleshooting</li>
+                <li>✗ Expensive add-on apps & plugins</li>
+                <li>✗ Slow loading speeds & rigid designs</li>
+                <li>✗ Generic automated support bots</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works / Process Section (High-Contrast Dark Theme) -->
+    <section class="section section-dark" id="process">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.4); color: var(--accent-sun);">
+            Transparent Roadmap
+          </span>
+          <h2>From kickoff to live in about a week</h2>
+          <p class="lead">
+            We don’t believe in lengthy requirement documents or weeks of radio silence. Here is exactly what working together looks like:
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <!-- Step 1 -->
+          <article class="process-card">
+            <span class="process-number">01</span>
+            <h3>Brief & Discovery</h3>
+            <p>Tell us about your company, target audience, and must-have pages in our brief onboarding intake.</p>
+            <span class="process-time">Day 1</span>
+          </article>
+
+          <!-- Step 2 -->
+          <article class="process-card">
+            <span class="process-number">02</span>
+            <h3>Interactive Draft</h3>
+            <p>Within 48 hours, you review a fully functional, clickable preview of your new website on a private link.</p>
+            <span class="process-time">Day 3</span>
+          </article>
+
+          <!-- Step 3 -->
+          <article class="process-card">
+            <span class="process-number">03</span>
+            <h3>Refine & Polish</h3>
+            <p>Two comprehensive rounds of feedback are included. We tweak copy, imagery, and layout until it feels 100% right.</p>
+            <span class="process-time">Day 5</span>
+          </article>
+
+          <!-- Step 4 -->
+          <article class="process-card">
+            <span class="process-number">04</span>
+            <h3>Go Live & Care</h3>
+            <p>We connect your custom domain, verify SSL encryption, submit search sitemaps, and take over ongoing care.</p>
+            <span class="process-time">Day 7 & Beyond</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials / Client Proof Section -->
+    <section class="section section-alt" id="reviews">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Real Stories</span>
+          <h2>Trusted by business owners nationwide</h2>
+          <p class="lead">Here is how Brightbinaries helps independent founders and team leaders build momentum online.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Review 1 -->
+          <article class="testimonial-card">
+            <div class="star-rating" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-quote">
+              "We went from an embarrassing DIY page to a website that genuinely wins us catering orders every single weekend. Brightbinaries delivered on day 6 with zero fuss."
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar">MR</div>
+              <div class="client-info">
+                <div class="client-name">Marcus Reed</div>
+                <div class="client-role">Owner, Sunrise Bakery Co.</div>
+              </div>
+              <span class="client-result">+180% Orders</span>
+            </div>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="testimonial-card">
+            <div class="star-rating" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-quote">
+              "Patients constantly tell us how easy it is to book appointments online. Whenever our clinic updates operating hours, Brightbinaries has the site updated within two hours."
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar">DL</div>
+              <div class="client-info">
+                <div class="client-name">Dr. Elena Lopez</div>
+                <div class="client-role">Clinic Lead, Greenleaf Health</div>
+              </div>
+              <span class="client-result">Top Google Rank</span>
+            </div>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="testimonial-card">
+            <div class="star-rating" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-quote">
+              "Agency quotes were asking \$12,000 for our commercial portfolio redesign. Brightbinaries gave us a better, faster result on the Business Plan at a fraction of the cost."
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar">TH</div>
+              <div class="client-info">
+                <div class="client-name">Thomas Hayes</div>
+                <div class="client-role">Director, Northstone Builders</div>
+              </div>
+              <span class="client-result">Saved \$10k+</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Clear Answers</span>
+          <h2>Frequently Asked Questions</h2>
+          <p class="lead">Everything you need to know about our process, code ownership, and care plans.</p>
+        </div>
+
+        <div class="faq-list">
+          <!-- Q1 -->
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Can I cancel hosting later and take my website with me?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes, absolutely. You retain 100% ownership of your website design, code, assets, and content. If you ever decide to transition hosting to another provider or an internal server, we export your clean code files and help you move them without lock-in.</p>
+            </div>
+          </details>
+
+          <!-- Q2 -->
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Do I need to purchase a domain name before getting started?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>Not at all. If you already have a domain, we connect it seamlessly at launch for free. If you do not have one yet, we assist in finding, purchasing, and configuring the ideal .com domain name for your company.</p>
+            </div>
+          </details>
+
+          <!-- Q3 -->
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>What if I need changes or updates after the site is launched?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>That is the best part of our studio care subscription! Just shoot us a quick email or text with the edits you need (new photos, text changes, staff bios, or announcements). Minor updates are handled within 24 hours under your monthly plan allowance.</p>
+            </div>
+          </details>
+
+          <!-- Q4 -->
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>How are payments split, and is there a satisfaction guarantee?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>The one-time build fee is split into two fair payments: 50% to initiate the kickoff and reserve your build window, and 50% only when you review and approve the final site for launch. We also provide a 30-day post-launch warranty with free fixes.</p>
+            </div>
+          </details>
+
+          <!-- Q5 -->
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Do you work with custom enterprise architectures and web apps?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes. Our Enterprise tier is tailored for multi-region organizations, SaaS brands, and portals requiring custom API integrations (Stripe, HubSpot, Salesforce, Supabase), SSO authentication, and strict SOC2/GDPR compliance guidelines.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Quote Form Section -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-layout">
+        <!-- Contact Context Column -->
+        <div class="contact-info-panel">
+          <span class="section-eyebrow">Start Your Project</span>
+          <h2>Let's build your website</h2>
+          <p class="lead">
+            Tell us about your business goals and what you need. We will review your project and send a fixed, itemized proposal within one business day—never high-pressure sales calls.
+          </p>
+
+          <div class="contact-channels">
+            <div class="contact-channel-item">
+              <div class="channel-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="channel-details">
+                <h4>Direct Email</h4>
+                <a href="mailto:hello@brightbinaries.example">hello@brightbinaries.example</a>
+              </div>
+            </div>
+
+            <div class="contact-channel-item">
+              <div class="channel-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="channel-details">
+                <h4>Turnaround Pledge</h4>
+                <p>We review and answer every quote inquiry in under 4 hours during business days.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="guarantee-box">
+            <h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              The Brightbinaries Guarantee
+            </h4>
+            <p>If you don't love your draft preview during Step 2, you pay nothing further. Simple as that.</p>
+          </div>
+        </div>
+
+        <!-- Accessible Quote Request Form -->
+        <div class="quote-card">
+          <form class="quote-form" id="quoteForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="quoteName">Full Name *</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="quoteName"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  placeholder="e.g. Alex Morgan"
+                  aria-describedby="quoteName-hint"
+                  aria-errormessage="quoteName-error"
+                >
+                <div class="form-error" id="quoteName-error" role="alert">
+                  <span aria-hidden="true">⚠️</span> Please provide your full name.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="quoteEmail">Work Email *</label>
+                <span class="form-hint" id="quoteEmail-hint">We will send your proposal here</span>
+                <input
+                  class="form-control"
+                  type="email"
+                  id="quoteEmail"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  placeholder="name@company.com"
+                  aria-describedby="quoteEmail-hint"
+                  aria-errormessage="quoteEmail-error"
+                >
+                <div class="form-error" id="quoteEmail-error" role="alert">
+                  <span aria-hidden="true">⚠️</span> Please enter a valid email address.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="quotePlan">Selected Plan</label>
+                <select class="form-control" id="quotePlan" name="plan">
+                  <option value="Starter">Starter ($9/mo + $199 build)</option>
+                  <option value="Business" selected>Business ($29/mo + $499 build - Most Popular)</option>
+                  <option value="Enterprise">Enterprise ($99/mo + Custom)</option>
+                  <option value="Not Sure Yet">Not sure yet (Help me decide)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="quoteTimeline">Target Launch Timeline</label>
+                <select class="form-control" id="quoteTimeline" name="timeline">
+                  <option value="Urgent (1-2 Weeks)">Urgent (1–2 weeks)</option>
+                  <option value="Standard (2-4 Weeks)" selected>Standard (2–4 weeks)</option>
+                  <option value="Flexible (1-2 Months)">Flexible (1–2 months)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="quoteMessage">Tell us about your business & goals *</label>
+              <span class="form-hint" id="quoteMessage-hint">Current website URL (if any), what services you sell, or key features you need</span>
+              <textarea
+                class="form-control"
+                id="quoteMessage"
+                name="message"
+                rows="4"
+                required
+                minlength="10"
+                placeholder="We run a boutique clinic and need a clean mobile-friendly site with online booking and patient testimonials..."
+                aria-describedby="quoteMessage-hint"
+                aria-errormessage="quoteMessage-error"
+              ></textarea>
+              <div class="form-error" id="quoteMessage-error" role="alert">
+                <span aria-hidden="true">⚠️</span> Please tell us a bit more about your project (min 10 characters).
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg" type="submit" style="width: 100%;">
+              Send My Free Quote Request
+              <svg class="btn-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+
+            <!-- Submission Feedback Status -->
+            <div class="form-alert" id="quoteAlert" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="site-logo" href="#top" aria-label="Brightbinaries Web Studio Home">
+            <svg class="site-logo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="64" height="64" rx="16" fill="#1C2541"/>
+              <rect x="8" y="8" width="48" height="48" rx="12" fill="#1D4ED8"/>
+              <path d="M20 17h16.5c7 0 12.5 4.3 12.5 10.4 0 4.8-3.1 8.2-7.5 9.4 5 .9 9.2 4.9 9.2 10.7C50.7 46.4 45 52 35.8 52H20V17Zm10 11.2h4.5c4 0 6.2-1.9 6.2-4.9 0-3.1-2.2-4.8-6.2-4.8H30v9.7Zm0 13.6h5.3c4.9 0 7.6-2.1 7.6-5.7 0-3.5-2.7-5.6-7.6-5.6H30v11.3Z" fill="#F8FAFC"/>
+              <circle cx="47" cy="18" r="7" fill="#F59E0B"/>
+            </svg>
+            Brightbinaries
+          </a>
+          <p>
+            Affordable, high-performance websites, enterprise-grade cloud hosting, and continuous concierge care for small businesses and growing teams.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Studio Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Custom Web Design</a></li>
+            <li><a href="#services">Cloud Edge Hosting</a></li>
+            <li><a href="#services">Ongoing Care & Edits</a></li>
+            <li><a href="#services">Core Web Vitals SEO</a></li>
+            <li><a href="#services">Stripe & E-Commerce</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="#showcase">Live Template Demos</a></li>
+            <li><a href="#pricing">Pricing Plans</a></li>
+            <li><a href="#process">The 7-Day Process</a></li>
+            <li><a href="#reviews">Client Testimonials</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@brightbinaries.example">hello@brightbinaries.example</a></li>
+            <li><a href="#contact">Request a Fixed Quote</a></li>
+            <li><a href="#faq">Hosting Transfer Help</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © <span id="currentYear">2026</span> Brightbinaries Web Studio. All rights reserved.
+        </div>
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          All Systems Operational
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<section class="features" id="services">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Everything your site needs, in one place</h2>
-      <p class="lead">You don’t need to find a designer, a hosting company and someone to fix things later. We do all three.</p>
-    </div>
-    <div class="grid3">
-      <article class="feat">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
-        <h3>Design that fits you</h3>
-        <p>Clean, fast pages that work on phones first. Built around your brand, not a copy of someone else’s template.</p>
-      </article>
-      <article class="feat">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17a4 4 0 0 1-.5-7.9A6 6 0 0 1 17 8a4.5 4.5 0 0 1 1 8.9"/><path d="M12 12v8M9 17l3 3 3-3"/></svg>
-        <h3>Fast, secure hosting</h3>
-        <p>Your domain, SSL certificate, daily backups and uptime monitoring are all covered by your monthly plan.</p>
-      </article>
-      <article class="feat">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>
-        <h3>Ongoing maintenance</h3>
-        <p>Text and photo changes, security updates and small fixes. Send us a message and it’s done, usually within a day.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="pricing">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Simple pricing</h2>
-      <p class="lead">Pay once to build, then a small monthly fee for hosting and care. Save two months when you pay yearly.</p>
-    </div>
-    <div class="toggle" role="group" aria-label="Billing period">
-      <button id="bMonthly" aria-pressed="true">Monthly</button>
-      <button id="bYearly" aria-pressed="false">Yearly</button>
-    </div>
-    <div class="grid3">
-      <article class="plan">
-        <h3>Starter</h3>
-        <p class="for">For a shop, freelancer or local service that needs to be found online.</p>
-        <div class="price"><span data-m="9" data-y="90">$9</span><small data-per>/month</small></div>
-        <p class="once">+ $199 one-time build</p>
-        <ul><li>Up to 5 pages</li><li>Mobile-friendly design</li><li>Hosting and SSL included</li><li>Contact form</li><li>1 content update a month</li></ul>
-        <a class="btn btn-ghost" href="#contact" data-plan="Starter">Choose Starter</a>
-      </article>
-      <article class="plan pop">
-        <span class="badge">Most chosen</span>
-        <h3>Business</h3>
-        <p class="for">For growing businesses that want to sell, book or publish regularly.</p>
-        <div class="price"><span data-m="29" data-y="290">$29</span><small data-per>/month</small></div>
-        <p class="once">+ $499 one-time build</p>
-        <ul><li>Up to 15 pages</li><li>Online booking or simple shop</li><li>Daily backups</li><li>Basic search ranking setup</li><li>5 content updates a month</li></ul>
-        <a class="btn btn-primary" href="#contact" data-plan="Business">Choose Business</a>
-      </article>
-      <article class="plan">
-        <h3>Enterprise</h3>
-        <p class="for">For large organisations with many pages, teams or custom tools.</p>
-        <div class="price"><span data-m="99" data-y="990">$99</span><small data-per>/month</small></div>
-        <p class="once">+ custom build quote</p>
-        <ul><li>Unlimited pages</li><li>Custom features and integrations</li><li>Priority support, same-day replies</li><li>Monthly performance report</li><li>Unlimited content updates</li></ul>
-        <a class="btn btn-ghost" href="#contact" data-plan="Enterprise">Talk to us</a>
-      </article>
-    </div>
-    <p class="note">Prices are examples in US dollars. Change them in the HTML to match your own.</p>
-  </div>
-</section>
-
-<section class="process" id="process">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>From hello to live in about a week</h2>
-      <p class="lead">Smaller sites launch faster. Larger ones get a timeline we agree on together.</p>
-    </div>
-    <ol class="steps">
-      <li><h3>Tell us about you</h3><p>Fill in the short form. We’ll reply within one working day.</p></li>
-      <li><h3>See a draft</h3><p>You get a working preview of your homepage to react to.</p></li>
-      <li><h3>Refine together</h3><p>Two rounds of changes are included in every plan.</p></li>
-      <li><h3>Go live</h3><p>We launch, host and look after it from day one.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap faq">
-    <div class="sec-head"><h2>Questions we get a lot</h2></div>
-    <details><summary>Can I cancel hosting and take my site with me?</summary><p>Yes. The site is yours. If you leave, we hand over the files and help you move them.</p></details>
-    <details><summary>Do I need my own domain name?</summary><p>No. If you don’t have one, we’ll help you pick and register it. If you already own one, we connect it for free.</p></details>
-    <details><summary>What if I need a change after launch?</summary><p>Send us a message. Each plan includes a set number of updates every month, and extra ones are billed at a fixed small rate.</p></details>
-    <details><summary>Do you work with large businesses?</summary><p>Yes. Enterprise projects get a dedicated contact, custom features and a written timeline before we start.</p></details>
-    <details><summary>How do I pay?</summary><p>The build fee is split in two: half to start, half at launch. Hosting is billed monthly or yearly.</p></details>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap contact-grid">
-    <div>
-      <h2>Get your free quote</h2>
-      <p class="lead">Tell us what you do and what you need. We’ll send a fixed price, not a vague range.</p>
-    </div>
-    <form id="form" novalidate>
-      <label>Your name
-        <input type="text" id="name" autocomplete="name">
-        <span class="err" data-for="name"></span>
-      </label>
-      <label>Email
-        <input type="email" id="email" autocomplete="email">
-        <span class="err" data-for="email"></span>
-      </label>
-      <label>Plan you’re interested in
-        <select id="plan">
-          <option>Starter</option><option>Business</option><option>Enterprise</option><option>Not sure yet</option>
-        </select>
-      </label>
-      <label>About your business
-        <textarea id="msg" rows="4"></textarea>
-        <span class="err" data-for="msg"></span>
-      </label>
-      <button class="btn btn-primary" type="submit">Send my request</button>
-      <p class="ok" id="ok" role="status">Thanks! We’ll reply within one working day.</p>
-    </form>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span>© <span id="yr">2026</span> Brightdesk Web Studio</span>
-    <span>hello@brightdesk.example</span>
-  </div>
-</footer>
-
-<script>
-// Mobile menu
-const menuBtn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
-menuBtn.addEventListener('click', () => {
-  const open = menu.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', open);
-});
-menu.addEventListener('click', e => { if (e.target.tagName === 'A') { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
-
-// Hero preview switcher
-const demos = [
-  {tag:'Bakery', url:'www.sunrisebakery.com', t:'Fresh bread, baked every morning.', p:'Order online and pick up warm loaves on your way to work.', b:'Order now', bg:'#FFE9C7', fg:'#4A2A0B', c:'#B45309'},
-  {tag:'Clinic', url:'www.greenleafclinic.com', t:'Care that starts with listening.', p:'Book an appointment in under a minute, any time of day.', b:'Book a visit', bg:'#DDF3EC', fg:'#0B3B2E', c:'#0F766E'},
-  {tag:'Builder', url:'www.northstonebuild.com', t:'Homes built to last, on time.', p:'See our recent projects and request a site visit.', b:'Request a quote', bg:'#E4E8EF', fg:'#1B2A41', c:'#1F4FD8'},
-  {tag:'Enterprise', url:'www.meridiangroup.com', t:'One platform for every office.', p:'Services, news and careers across 12 countries, in one place.', b:'Explore services', bg:'#E8E1FA', fg:'#2A1B5C', c:'#6D28D9'}
-];
-const $ = id => document.getElementById(id);
-document.querySelectorAll('.switcher button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const d = demos[btn.dataset.i];
-    document.querySelectorAll('.switcher button').forEach(b => b.setAttribute('aria-pressed', b === btn));
-    $('tag').textContent = d.tag; $('url').textContent = d.url;
-    $('sTitle').textContent = d.t; $('sText').textContent = d.p; $('sBtn').textContent = d.b;
-    $('sBtn').style.background = d.c;
-    $('screen').style.background = d.bg; $('screen').style.color = d.fg;
-  });
-});
-(() => { const d = demos[0]; $('screen').style.background = d.bg; $('screen').style.color = d.fg; $('sBtn').style.background = d.c; })();
-
-// Pricing toggle
-function setBilling(yearly) {
-  $('bMonthly').setAttribute('aria-pressed', !yearly);
-  $('bYearly').setAttribute('aria-pressed', yearly);
-  document.querySelectorAll('[data-m]').forEach(el => el.textContent = '$' + (yearly ? el.dataset.y : el.dataset.m));
-  document.querySelectorAll('[data-per]').forEach(el => el.textContent = yearly ? '/year' : '/month');
-}
-$('bMonthly').onclick = () => setBilling(false);
-$('bYearly').onclick = () => setBilling(true);
-
-// Plan buttons preselect the form
-document.querySelectorAll('[data-plan]').forEach(a => a.addEventListener('click', () => { $('plan').value = a.dataset.plan; }));
-
-// Form validation
-const form = $('form');
-function setErr(id, msg) { form.querySelector('[data-for="' + id + '"]').textContent = msg; }
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  let valid = true;
-  const name = $('name').value.trim(), email = $('email').value.trim(), msg = $('msg').value.trim();
-  setErr('name', name ? '' : 'Enter your name.'); if (!name) valid = false;
-  const okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  setErr('email', okEmail ? '' : 'Enter a valid email, like name@example.com.'); if (!okEmail) valid = false;
-  setErr('msg', msg.length >= 10 ? '' : 'Tell us a little more (at least 10 characters).'); if (msg.length < 10) valid = false;
-  if (!valid) return;
-  // TODO: send the data to your backend or a form service (Formspree, Netlify Forms, etc.)
-  $('ok').classList.add('show');
-  form.reset();
-});
-
-$('yr').textContent = new Date().getFullYear();
-</script>
+  <!-- Application Entrypoint Module -->
+  <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>
